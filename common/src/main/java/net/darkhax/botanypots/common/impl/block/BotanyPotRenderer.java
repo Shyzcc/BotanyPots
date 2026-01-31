@@ -67,14 +67,14 @@ public class BotanyPotRenderer implements BlockEntityRenderer<BotanyPotBlockEnti
         }
         final BlockPos pos = pot.getBlockPos();
         final int maxGrowth = pot.getRequiredGrowthTicks();
-        final float progress = maxGrowth > 0 ? Math.clamp(Math.clamp(pot.growthTime.getTicks(), 0, maxGrowth) / maxGrowth, 0f, 1f) : 0f;
+        final float progress = 0f;
         final AxisAlignedRotation baseRotation = getRotationForFace(pot.getBlockState().getValue(BlockStateProperties.HORIZONTAL_FACING));
         final Soil soil = pot.getOrInvalidateSoil();
         final Crop crop = pot.getOrInvalidateCrop();
         final boolean isGrowing = crop != null && crop.isGrowthSustained(pot.getRecipeContext(), level);
         final ItemStack soilItem = pot.getSoilItem();
 
-        final float cropScale = 0.40f + Math.clamp(0.60f * progress, 0f, 0.60f);
+        final float cropScale = 1.0f;
         float lastOffset = 0.3984375f;
 
         if (isGrowing) {
